@@ -30,6 +30,7 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
+  UPLOAD_OPENWRT_DIR: ture
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -116,7 +117,7 @@ jobs:
 
     - name: Upload openwrt directory
       uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_OPENWRT_DIR == 'true'
       with:
         name: OpenWrt
         path: openwrt
