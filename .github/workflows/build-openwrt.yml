@@ -117,10 +117,9 @@ jobs:
 
     - name: Upload openwrt directory
       uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_OPENWRT_DIR == 'true'
       with:
         name: OpenWrt
-        path: openwrt
+        path: /workdir/openwrt
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
